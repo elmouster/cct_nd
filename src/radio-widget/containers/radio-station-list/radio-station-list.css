@@ -1,0 +1,16 @@
+.radioListHeader {
+    background-color: chocolate;
+}
+
+.radioListFooter {
+    background-color: darkslategray;
+    color: chocolate;
+}
+
+.footer-visible {
+    visibility: visible;
+}
+
+.footer-hidden {
+    visibility: hidden;
+}
