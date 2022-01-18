@@ -1,10 +1,10 @@
 import './App.css';
-import {RadioStationList} from ".//radio-widget/containers/radio-station-list/radio-station-list.js";
+import RadioStationWidget from "./radio-widget/containers/radio-station-list/radio-station-widget.js";
 
 function App() {
   return (
     <div className="App">
-      <RadioStationList></RadioStationList>
+      <RadioStationWidget></RadioStationWidget>
     </div>
   );
 }
