@@ -7,7 +7,7 @@ const RadioStation = ({index, active, pictureUrl, title, wave, onRadioSelect}) =
         <div onClick={() => onRadioSelect(index)}>
             <div class="station-details" className={active ? "station-visible" : "station-hidden"}>
                 <button class="volume-button"></button>
-                <img class="station-picture" src={ pictureUrl }></img>
+                <img class="station-picture" src={ pictureUrl }/>
                 <button class="volume-button"></button>
             </div>
             <div class="station-desc">

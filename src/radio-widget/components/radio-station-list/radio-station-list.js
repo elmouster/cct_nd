@@ -8,8 +8,8 @@ const RadioStationList = ({stations, onRadioSelect, currentlyPlayingIndex}) => {
                 index={index}
                 onRadioSelect={onRadioSelect} 
                 title={station.title}
-                wave={station.wave}>
-            </RadioStation>
+                wave={station.wave}
+            />
         </li>);
     return (<ul>{stationListItems}</ul>)
 }
