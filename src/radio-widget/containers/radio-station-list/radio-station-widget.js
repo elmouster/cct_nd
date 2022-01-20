@@ -4,12 +4,10 @@ import { fetchStations } from '../../services/radio-station-service.js'
 import './radio-station-widget.css';
 
 const RadioStationWidget = ({currentlyPlayingIndex}) => {
-    const [state, setState] = useState({currentlyPlayingIndex});
+    const [currentlyActiveIndex, setCurrentlyPlayingIndex] = useState(currentlyPlayingIndex);
     const [stationsList, setStations] = useState([]);
     const onRadioSelect = (index) => {
-        setState({
-            currentlyPlayingIndex: index
-        });
+        setCurrentlyPlayingIndex(index);
     }
     
     useEffect(() => {
@@ -27,14 +25,14 @@ const RadioStationWidget = ({currentlyPlayingIndex}) => {
             </div>
             <RadioStationList 
                 onRadioSelect={onRadioSelect}
-                currentlyPlayingIndex={state.currentlyPlayingIndex}
+                currentlyPlayingIndex={currentlyActiveIndex}
                 stations={stationsList}
             />
             <div class="radioListFooter">
-                <div className={stationsList[state.currentlyPlayingIndex] ? "footer-visible" : "footer-hidden"}>
+                <div class="footer-visible">
                     <div class="footer">Currently playing</div>
                     <div class="currently-playing-title">
-                        {stationsList[state.currentlyPlayingIndex]?.title}
+                        {stationsList[currentlyActiveIndex]?.title}
                     </div>
                 </div>
             </div>

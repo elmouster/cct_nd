@@ -1,37 +1,28 @@
 .station-visible {
     display: inline;
     /* transition: all 3s ease 2s; */
-    /* height: auto; */
+    height: auto;
     overflow: hidden;
+    /* max-height: 500px;
+    transition: max-height 0.25s ease-in; */
 }
 
 .station-hidden {
     display: none;
-    /* height: 0; */
+    height: 0;
     /* transition: all 3s ease 2s; */
     overflow: hidden;
+    max-height: 0;
+    transition: all 0.15s ease-out;
 }
 
-.station-details-enter {
-    display: inline;
-    height: 0;
-}
-
-.station-details-enter-active {
-    display: inline;
-    height: auto;
-    transition: all 3s ease 2s;
-}
-
-.station-details-exit {
-    height: auto;
+.station-hidden:active {
     display: none;
-}
-
-.station-details-exit-active {
     height: auto;
-    display: 0;
-    transition: all 3s ease 2s;
+    /* transition: all 3s ease 2s; */
+    overflow: hidden;
+    max-height: 100px;
+    transition: all 0.15s ease-out;
 }
 
 .station hr {
@@ -53,4 +44,8 @@
 .station-picture {
     border-radius : 50%;
     border: 2px solid white;
+}
+
+.volume-button {
+    overflow: hidden;
 }
