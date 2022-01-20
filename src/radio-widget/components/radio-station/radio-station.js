@@ -4,17 +4,19 @@ import './radio-station.css'
 const RadioStation = ({index, active, pictureUrl, title, wave, onRadioSelect}) => {
     const baseUrl = "../../assets/images/logos/";
     const radioStation = useRef(null);
+    // const [startTransition, isPending] = useTransition({ timeoutMs: 500 });
+    const [isActive, setActive] = useState(active);
 
-    if (active) {
-        radioStation.current.animate([
-            { height: 0 },
-            // play
-            { height: 100 },
-          ], {
-            duration: 1000,
-            easing: 'ease-out',
-          });
-    }
+    // if (active) {
+        // radioStation.current.animate([
+        //     { height: 0 },
+        //     // play
+        //     { height: 100 },
+        //   ], {
+        //     duration: 1000,
+        //     easing: 'ease-out',
+        //   });
+    // }
 
     return (
         <div onClick={() => onRadioSelect(index)} class="station">
