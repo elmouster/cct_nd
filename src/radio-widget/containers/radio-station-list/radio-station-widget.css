@@ -1,10 +1,47 @@
+.widget {
+    width: 320px;
+    height: 460px;
+}
+
 .radioListHeader {
-    background-color: chocolate;
+    background-color: sandybrown;
+    height: 60px;
+    border-radius: 20px 20px 0% 0%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header {
+    text-transform: uppercase;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: white;
+    opacity: 0.66;
+    font-weight: bold;
+}
+
+.footer {
+    font-size: x-small;
+    font-weight: bold;
+    padding-top: 12px;
+}
+
+.currently-playing-title {
+    text-transform: none;
 }
 
 .radioListFooter {
-    background-color: darkslategray;
-    color: chocolate;
+    background-color: rgb(29, 49, 49);
+    color: sandybrown;
+    text-transform: uppercase;
+    height: 60px;
+    border-radius: 0% 0% 20px 20px;
+}
+
+.radioListFooter .currently-playing-title {
+    color: white;
+    opacity: 0.66;
 }
 
 .footer-visible {
@@ -13,4 +50,24 @@
 
 .footer-hidden {
     visibility: hidden;
+}
+
+.control-button {
+    height: 20px;
+    width: 17px;
+    margin-top: auto;
+    margin-bottom: auto;
+    opacity: 0.66;
+}
+
+.control-button:hover {
+    opacity: 1;
+}
+
+.expand-button {
+    padding-left: 12px;
+}
+
+.on-of-button {
+    padding-right: 12px;
 }

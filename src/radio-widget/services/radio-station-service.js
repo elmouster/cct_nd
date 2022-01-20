@@ -1,25 +1,25 @@
 export const fetchStations = (params) => {
-    return new Promise((resolve) => { 
+    return new Promise((resolve) => {
         return resolve([
             {
                 title: "labas rytas",
                 wave: 66.6,
-                pictureUrl: "ss"
+                pictureUrl: "D.png"
             },
             {
                 title: "laba diena",
                 wave: 99.9,
-                pictureUrl: "aa"
+                pictureUrl: "R.png"
             },
             {
                 title: "laba vakara",
                 wave: 101.1,
-                pictureUrl: "aaa"
+                pictureUrl: "V.png"
             },
             {
                 title: "labanakt",
                 wave: 112.9,
-                picture: "ddd"
+                pictureUrl: "L.png"
             }
         ])
     })

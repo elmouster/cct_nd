@@ -3,12 +3,11 @@ import RadioStationList from '../../components/radio-station-list/radio-station-
 import { fetchStations } from '../../services/radio-station-service.js'
 import './radio-station-widget.css';
 
-const RadioStationWidget = ({currentlyPlaying, currentlyPlayingIndex}) => {
-    const [state, setState] = useState({currentlyPlaying, currentlyPlayingIndex});
+const RadioStationWidget = ({currentlyPlayingIndex}) => {
+    const [state, setState] = useState({currentlyPlayingIndex});
     const [stationsList, setStations] = useState([]);
     const onRadioSelect = (index) => {
-        setState({ 
-            currentlyPlaying : stationsList[index],
+        setState({
             currentlyPlayingIndex: index
         });
     }
@@ -20,22 +19,22 @@ const RadioStationWidget = ({currentlyPlaying, currentlyPlayingIndex}) => {
     }, []);
 
     return (
-        <div>
+        <div class="widget">
             <div class="radioListHeader">
-                <button class="expand-button"></button>
-                Stations
-                <button class="on-of-button"></button>
+                <img class="control-button expand-button" src={require("../../assets/images/back-arrow.png")}></img>
+                <div class="header">Stations</div>
+                <img class="control-button on-of-button" src={require("../../assets/images/switch.png")}></img>
             </div>
             <RadioStationList 
                 onRadioSelect={onRadioSelect}
-                currentlyPlayingIndex={currentlyPlayingIndex}
+                currentlyPlayingIndex={state.currentlyPlayingIndex}
                 stations={stationsList}
             />
             <div class="radioListFooter">
-                <div className={state.currentlyPlaying ? "footer-visible" : "footer-hidden"}>
-                    Currently playing
+                <div className={stationsList[state.currentlyPlayingIndex] ? "footer-visible" : "footer-hidden"}>
+                    <div class="footer">Currently playing</div>
                     <div class="currently-playing-title">
-                        {state.currentlyPlaying?.title}
+                        {stationsList[state.currentlyPlayingIndex]?.title}
                     </div>
                 </div>
             </div>
