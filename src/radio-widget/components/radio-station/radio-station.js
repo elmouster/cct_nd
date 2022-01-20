@@ -1,11 +1,9 @@
-import React, {useState, useRef} from 'react';
+import React, {useRef} from 'react';
 import './radio-station.css'
 
 const RadioStation = ({index, active, pictureUrl, title, wave, onRadioSelect}) => {
     const baseUrl = "../../assets/images/logos/";
     const radioStation = useRef(null);
-    // const [startTransition, isPending] = useTransition({ timeoutMs: 500 });
-    const [isActive, setActive] = useState(active);
 
     if (radioStation.current) {
         if (active) {
