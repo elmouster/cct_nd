@@ -7,7 +7,12 @@ const RadioStationWidget = ({currentlyPlayingIndex}) => {
     const [currentlyActiveIndex, setCurrentlyPlayingIndex] = useState(currentlyPlayingIndex);
     const [stationsList, setStations] = useState([]);
     const onRadioSelect = (index) => {
-        setCurrentlyPlayingIndex(index);
+        if (currentlyActiveIndex !== index) {
+            setCurrentlyPlayingIndex(index);
+        }
+        else {
+            setCurrentlyPlayingIndex(null);
+        }
     }
     
     useEffect(() => {
@@ -16,7 +21,7 @@ const RadioStationWidget = ({currentlyPlayingIndex}) => {
         });        
     }, []);
 
-    const cuurentStation = stationsList[currentlyActiveIndex];
+    const cuurentStation = currentlyActiveIndex ? stationsList[currentlyActiveIndex] : null;
 
     return (
         <div class="widget">
