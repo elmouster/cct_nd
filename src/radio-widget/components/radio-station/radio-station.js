@@ -7,20 +7,18 @@ const RadioStation = ({index, active, pictureUrl, title, wave, onRadioSelect}) =
     // const [startTransition, isPending] = useTransition({ timeoutMs: 500 });
     const [isActive, setActive] = useState(active);
 
-    // if (active) {
-        // radioStation.current.animate([
-        //     { height: 0 },
-        //     // play
-        //     { height: 100 },
-        //   ], {
-        //     duration: 1000,
-        //     easing: 'ease-out',
-        //   });
-    // }
+    if (radioStation.current) {
+        if (active) {
+            radioStation.current.style.maxHeight = radioStation.current.style.height;
+        }
+        else {
+            radioStation.current.style.maxHeight = 0;
+        }
+    }
 
     return (
         <div onClick={() => onRadioSelect(index)} class="station">
-            <div class="station-details" ref={radioStation} className={active ? "station-hidden:active" : "station-hidden"}>
+            <div class="station-details" ref={radioStation} className={active ? "station-visible" : "station-hidden"}>
 
                 <img class="volume-button" src={require("../../assets/images/minus.png")}/>
                 <img class="station-picture" />

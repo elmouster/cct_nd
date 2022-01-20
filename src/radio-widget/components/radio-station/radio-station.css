@@ -1,28 +1,14 @@
 .station-visible {
-    display: inline;
-    /* transition: all 3s ease 2s; */
-    height: auto;
     overflow: hidden;
-    /* max-height: 500px;
-    transition: max-height 0.25s ease-in; */
+    transition: transform 0.5s ease-out 0.1s;
+    transform:scaleY(1);
 }
 
 .station-hidden {
-    display: none;
-    height: 0;
-    /* transition: all 3s ease 2s; */
+    transform:scaleY(0);
     overflow: hidden;
     max-height: 0;
-    /* transition: max-height 0.5s ease-out; */
-}
-
-.station-hidden:active {
-    display: inline;
-    height: 100px;
-    /* transition: all 3s ease 2s; */
-    overflow: hidden;
-    max-height: 100px;
-    transition: height 0.5s ease-out;
+    transition: transform 0.5s ease-out 0.1s;
 }
 
 .station hr {

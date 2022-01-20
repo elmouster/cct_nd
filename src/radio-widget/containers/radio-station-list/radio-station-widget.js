@@ -16,6 +16,8 @@ const RadioStationWidget = ({currentlyPlayingIndex}) => {
         });        
     }, []);
 
+    const cuurentStation = stationsList[currentlyActiveIndex];
+
     return (
         <div class="widget">
             <div class="radioListHeader">
@@ -32,7 +34,7 @@ const RadioStationWidget = ({currentlyPlayingIndex}) => {
                 <div class="footer-visible">
                     <div class="footer">Currently playing</div>
                     <div class="currently-playing-title">
-                        {stationsList[currentlyActiveIndex]?.title}
+                        {cuurentStation?.title}
                     </div>
                 </div>
             </div>
