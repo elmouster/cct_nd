@@ -1,7 +1,56 @@
 .station-visible {
-    visibility: visible;
+    display: inline;
+    /* transition: all 3s ease 2s; */
+    /* height: auto; */
+    overflow: hidden;
 }
 
 .station-hidden {
-    visibility: hidden;
+    display: none;
+    /* height: 0; */
+    /* transition: all 3s ease 2s; */
+    overflow: hidden;
+}
+
+.station-details-enter {
+    display: inline;
+    height: 0;
+}
+
+.station-details-enter-active {
+    display: inline;
+    height: auto;
+    transition: all 3s ease 2s;
+}
+
+.station-details-exit {
+    height: auto;
+    display: none;
+}
+
+.station-details-exit-active {
+    height: auto;
+    display: 0;
+    transition: all 3s ease 2s;
+}
+
+.station hr {
+    width: 90%;
+    color: dimgrey;
+    size: 1px;
+}
+
+.station-desc {
+    padding-left: 12px;
+    padding-right: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    opacity: 0.66;
+}
+
+.station-picture {
+    border-radius : 50%;
+    border: 2px solid white;
 }
