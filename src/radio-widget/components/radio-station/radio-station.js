@@ -1,11 +1,12 @@
-import React, {useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import './radio-station.css'
 
 const RadioStation = ({index, active, pictureUrl, title, wave, onRadioSelect}) => {
     const radioStation = useRef(null);
+    const [isActive, setActive] = useState(active);
 
     if (radioStation.current) {
-        if (active) {
+        if (isActive) {
             radioStation.current.style.maxHeight = radioStation.current.style.height;
         }
         else {
@@ -13,9 +14,13 @@ const RadioStation = ({index, active, pictureUrl, title, wave, onRadioSelect}) =
         }
     }
 
+    useEffect(() => {
+        setActive(active);        
+    }, [active]);
+
     return (
         <div onClick={() => onRadioSelect(index)} class="station">
-            <div ref={radioStation} className={active ? "station-details station-visible" : "station-details station-hidden"}>
+            <div ref={radioStation} className={isActive ? "station-details station-hidden:active" : "station-details station-hidden"}>
 
                 <img class="volume-button" src={require("../../assets/images/minus.png")}/>
                 <img class="station-picture" src={"" + pictureUrl} />
