@@ -1,17 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import RadioStationList from '../../components/radio-station-list/radio-station-list.js';
 import { fetchStations } from '../../services/radio-station-service.js'
 import './radio-station-widget.css';
 
 const RadioStationWidget = ({currentlyPlaying, currentlyPlayingIndex}) => {
     const [state, setState] = useState({currentlyPlaying, currentlyPlayingIndex});
+    const [stationsList, setStations] = useState([]);
     const onRadioSelect = (index) => {
         setState({ 
-            currentlyPlaying : stationList[index],
+            currentlyPlaying : stationsList[index],
             currentlyPlayingIndex: index
         });
     }
-    let stationList = fetchStations();
+    
+    useEffect(() => {
+        fetchStations().then((stations) => {
+            setStations(stations);
+        });        
+    }, []);
 
     return (
         <div>
@@ -23,7 +29,7 @@ const RadioStationWidget = ({currentlyPlaying, currentlyPlayingIndex}) => {
             <RadioStationList 
                 onRadioSelect={onRadioSelect}
                 currentlyPlayingIndex={currentlyPlayingIndex}
-                stations={stationList}
+                stations={stationsList}
             />
             <div class="radioListFooter">
                 <div className={state.currentlyPlaying ? "footer-visible" : "footer-hidden"}>
