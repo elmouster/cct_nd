@@ -29,8 +29,20 @@
 .station-picture {
     border-radius : 50%;
     border: 2px solid white;
+    height: 80px;
+    width: 80px;
 }
 
 .volume-button {
-    overflow: hidden;
+    height: 30px;
+    width: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.station-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

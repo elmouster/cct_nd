@@ -2,7 +2,6 @@ import React, {useRef} from 'react';
 import './radio-station.css'
 
 const RadioStation = ({index, active, pictureUrl, title, wave, onRadioSelect}) => {
-    const baseUrl = "../../assets/images/logos/";
     const radioStation = useRef(null);
 
     if (radioStation.current) {
@@ -16,10 +15,10 @@ const RadioStation = ({index, active, pictureUrl, title, wave, onRadioSelect}) =
 
     return (
         <div onClick={() => onRadioSelect(index)} class="station">
-            <div class="station-details" ref={radioStation} className={active ? "station-visible" : "station-hidden"}>
+            <div ref={radioStation} className={active ? "station-details station-visible" : "station-details station-hidden"}>
 
                 <img class="volume-button" src={require("../../assets/images/minus.png")}/>
-                <img class="station-picture" />
+                <img class="station-picture" src={"" + pictureUrl} />
                 <img class="volume-button" src={require("../../assets/images/plus.png")}/>
 
             </div>
