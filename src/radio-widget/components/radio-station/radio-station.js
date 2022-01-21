@@ -2,10 +2,11 @@ import React, { useRef } from 'react';
 import useStationActivation from '../../services/hooks/useStationActivation.js'
 import './radio-station.css'
 
+const VOLUME_UP_ALT = 'volume-up';
+const VOLUME_DOWN_ALT = 'volume-down';
+
 const RadioStation = ({ index, active, pictureUrl, title, wave, onRadioSelect }) => {
     const radioStationRef = useRef(null);
-    const VOLUME_UP_ALT = 'volume-up';
-    const VOLUME_DOWN_ALT = 'volume-down';
 
     useStationActivation(radioStationRef.current, active);
 

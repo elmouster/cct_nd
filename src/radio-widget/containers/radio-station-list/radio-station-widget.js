@@ -3,11 +3,12 @@ import RadioStationList from '../../components/radio-station-list/radio-station-
 import { fetchStations } from '../../services/radio-station-service.js'
 import './radio-station-widget.css';
 
+const STATION_LIST_EXPAND_ALT = 'Station List Expand';
+const SWITCH_ALT = 'Radio Widget Switch';
+
 const RadioStationWidget = ({ currentlyPlayingIndex }) => {
     const [currentlyActiveIndex, setCurrentlyPlayingIndex] = useState(currentlyPlayingIndex);
     const [stationsList, setStations] = useState([]);
-    const STATION_LIST_EXPAND_ALT = 'Station List Expand';
-    const SWITCH_ALT = 'Radio Widget Switch';
     const onRadioSelect = (index) => {
         if (currentlyActiveIndex !== index) {
             setCurrentlyPlayingIndex(index);

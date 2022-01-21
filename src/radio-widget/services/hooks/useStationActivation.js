@@ -5,7 +5,7 @@ const useStationActivation = (elementReferense, active) => {
         if (!elementReferense) {
             return;
         }
-        console.log(elementReferense.scrollHeight);
+
         elementReferense.style.maxHeight = active 
             ? (elementReferense.scrollHeight * 2) + 'px' 
             : 0;    
