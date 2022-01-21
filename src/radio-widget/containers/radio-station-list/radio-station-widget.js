@@ -3,7 +3,7 @@ import RadioStationList from '../../components/radio-station-list/radio-station-
 import { fetchStations } from '../../services/radio-station-service.js'
 import './radio-station-widget.css';
 
-const RadioStationWidget = ({currentlyPlayingIndex}) => {
+const RadioStationWidget = ({ currentlyPlayingIndex }) => {
     const [currentlyActiveIndex, setCurrentlyPlayingIndex] = useState(currentlyPlayingIndex);
     const [stationsList, setStations] = useState([]);
     const onRadioSelect = (index) => {
@@ -21,25 +21,25 @@ const RadioStationWidget = ({currentlyPlayingIndex}) => {
         });        
     }, []);
 
-    const cuurentStation = currentlyActiveIndex ? stationsList[currentlyActiveIndex] : null;
+    const currentStation = currentlyActiveIndex ? stationsList[currentlyActiveIndex] : null;
 
     return (
-        <div class="widget">
-            <div class="radioListHeader">
-                <img class="control-button expand-button" src={require("../../assets/images/back-arrow.png")}></img>
-                <div class="header">Stations</div>
-                <img class="control-button on-of-button" src={require("../../assets/images/switch.png")}></img>
+        <div className="widget">
+            <div className="radioListHeader">
+                <img className="control-button expand-button" src={ require("../../assets/images/back-arrow.png") }/>
+                <div className="header"> Stations </div>
+                <img className="control-button on-of-button" src={ require("../../assets/images/switch.png") }/>
             </div>
             <RadioStationList 
-                onRadioSelect={onRadioSelect}
-                currentlyPlayingIndex={currentlyActiveIndex}
-                stations={stationsList}
+                onRadioSelect={ onRadioSelect }
+                currentlyPlayingIndex={ currentlyActiveIndex }
+                stations={ stationsList }
             />
-            <div class="radioListFooter">
-                <div class="footer-visible">
-                    <div class="footer">Currently playing</div>
-                    <div class="currently-playing-title">
-                        {cuurentStation?.title}
+            <div className="radioListFooter">
+                <div className="footer-visible">
+                    <div className="footer"> Currently playing </div>
+                    <div className="currently-playing-title">
+                        { currentStation?.title }
                     </div>
                 </div>
             </div>

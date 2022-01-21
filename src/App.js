@@ -3,7 +3,7 @@ import RadioStationWidget from "./radio-widget/containers/radio-station-list/rad
 
 function App() {
   return (
-    <div class="App">
+    <div className="App">
       <RadioStationWidget/>
     </div>
   );
