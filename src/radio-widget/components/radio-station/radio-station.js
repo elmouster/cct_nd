@@ -1,24 +1,32 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
+import useStationActivation from '../../services/hooks/useStationActivation.js'
 import './radio-station.css'
 
 const RadioStation = ({ index, active, pictureUrl, title, wave, onRadioSelect }) => {
-    const radioStation = useRef(null);
+    const radioStationRef = useRef(null);
+    const VOLUME_UP_ALT = 'volume-up';
+    const VOLUME_DOWN_ALT = 'volume-down';
 
-    useEffect(() => {
-        if (radioStation.current) {
-            radioStation.current.style.maxHeight = active 
-                ? (radioStation.current.scrollHeight + radioStation.current.parentElement.scrollHeight + 32) + 'px' 
-                : 0;
-        }       
-    }, [active]);
+    useStationActivation(radioStationRef.current, active);
 
     return (
         <div onClick={ () => onRadioSelect(index) } className="station-wrapper">
-            <div ref={ radioStation } className={active ? "station-details station:active" : "station-details station"}>
+            <div 
+                ref={ radioStationRef }
+                className={active ? "station-details station:active" : "station-details station"}>
 
-                <img className="volume-button" src={ require("../../assets/images/minus.png") }/>
-                <img className="station-picture" src={ "" + pictureUrl } />
-                <img className="volume-button" src={ require("../../assets/images/plus.png") }/>
+                <img 
+                    className="volume-button" 
+                    src={ require('../../assets/images/minus.png') } 
+                    alt={ VOLUME_UP_ALT } />
+                <img 
+                    className="station-picture" 
+                    src={ '' + pictureUrl } 
+                    alt={ title } />
+                <img 
+                    className="volume-button" 
+                    src={ require('../../assets/images/plus.png') } 
+                    alt={ VOLUME_DOWN_ALT } />
 
             </div>
 

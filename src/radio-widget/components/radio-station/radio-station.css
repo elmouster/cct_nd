@@ -4,6 +4,7 @@
 
 .station {
     height: 0;
+    max-height: 0;
 }
 
 .station-wrapper hr {

@@ -2,7 +2,7 @@ import RadioStation from '../radio-station/radio-station.js';
 import './radio-station-list.css'
 
 const RadioStationList = ({ stations, onRadioSelect, currentlyPlayingIndex }) => {
-    const baseUrl = "./logos/";
+    const baseUrl = './logos/';
 
     const stationListItems = stations?.map((station, index) => 
         <li key={ index }>
@@ -15,8 +15,8 @@ const RadioStationList = ({ stations, onRadioSelect, currentlyPlayingIndex }) =>
                 pictureUrl={ baseUrl + station.pictureUrl }
             />
         </li>);
-        
-    return (<ul class="station-list">{ stationListItems }</ul>)
+
+    return (<ul className="station-list">{ stationListItems }</ul>)
 }
 
 export default RadioStationList;
