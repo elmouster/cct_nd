@@ -1,27 +1,32 @@
-import React, {useState, useRef} from 'react';
-import { CSSTransition } from 'react-transition-group';
+import React, { useRef, useEffect } from 'react';
 import './radio-station.css'
 
-const RadioStation = ({index, active, pictureUrl, title, wave, onRadioSelect}) => {
-    const baseUrl = "../../assets/images/logos/";
-    const [isActive, setActive] = useState(active);
+const RadioStation = ({ index, active, pictureUrl, title, wave, onRadioSelect }) => {
     const radioStation = useRef(null);
 
+    useEffect(() => {
+        if (radioStation.current) {
+            radioStation.current.style.maxHeight = active 
+                ? (radioStation.current.scrollHeight + radioStation.current.parentElement.scrollHeight + 32) + 'px' 
+                : 0;
+        }       
+    }, [active]);
+
     return (
-        <div onClick={() => onRadioSelect(index)} class="station">
-            <CSSTransition in={active} nodeRef={radioStation} unmountOnExit appear={true} classNames={"station-details"} timeout={2000}>
-            <div class="station-details" ref={radioStation} >
+        <div onClick={ () => onRadioSelect(index) } className="station-wrapper">
+            <div ref={ radioStation } className={active ? "station-details station:active" : "station-details station"}>
 
-                <img class="volume-button" src={require("../../assets/images/minus.png")}/>
-                <img class="station-picture" />
-                <img class="volume-button" src={require("../../assets/images/plus.png")}/>
+                <img className="volume-button" src={ require("../../assets/images/minus.png") }/>
+                <img className="station-picture" src={ "" + pictureUrl } />
+                <img className="volume-button" src={ require("../../assets/images/plus.png") }/>
 
             </div>
-            </CSSTransition>
-            <div class="station-desc">
-                <span>{title}</span> <span>{wave}</span>
+
+            <div className="station-desc">
+                <span>{ title }</span> <span>{ wave }</span>
             </div>
-            <hr />
+
+            <hr/>
         </div>
       );
   }

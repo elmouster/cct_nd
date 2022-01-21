@@ -1,40 +1,12 @@
-.station-visible {
-    display: inline;
-    /* transition: all 3s ease 2s; */
-    /* height: auto; */
-    overflow: hidden;
+.station:active {
+    height: auto;
 }
 
-.station-hidden {
-    display: none;
-    /* height: 0; */
-    /* transition: all 3s ease 2s; */
-    overflow: hidden;
-}
-
-.station-details-enter {
-    display: inline;
+.station {
     height: 0;
 }
 
-.station-details-enter-active {
-    display: inline;
-    height: auto;
-    transition: all 3s ease 2s;
-}
-
-.station-details-exit {
-    height: auto;
-    display: none;
-}
-
-.station-details-exit-active {
-    height: auto;
-    display: 0;
-    transition: all 3s ease 2s;
-}
-
-.station hr {
+.station-wrapper hr {
     width: 90%;
     color: dimgrey;
     size: 1px;
@@ -53,4 +25,22 @@
 .station-picture {
     border-radius : 50%;
     border: 2px solid white;
+    height: 80px;
+    width: 80px;
+}
+
+.volume-button {
+    height: 30px;
+    width: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.station-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: max-height 1s ease-in-out;
 }
