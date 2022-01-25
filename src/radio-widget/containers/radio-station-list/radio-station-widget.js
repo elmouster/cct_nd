@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import RadioStationList from '../../components/radio-station-list/radio-station-list.js';
 import { fetchStations } from '../../services/radio-station-service.js'
+import { CurrentlyPlayingContext } from  '../../services/station-active-context.js'
 import './radio-station-widget.css';
 
 const STATION_LIST_EXPAND_ALT = 'Station List Expand';
@@ -39,11 +40,13 @@ const RadioStationWidget = ({ currentlyPlayingIndex }) => {
                     src={ require('../../assets/images/switch.png') } 
                     alt={ SWITCH_ALT } />
             </div>
-            <RadioStationList 
-                onRadioSelect={ onRadioSelect }
-                currentlyPlayingIndex={ currentlyActiveIndex }
-                stations={ stationsList }
-            />
+            <CurrentlyPlayingContext.Provider value={currentlyActiveIndex}>
+                <RadioStationList 
+                    onRadioSelect={ onRadioSelect }
+                    // currentlyPlayingIndex={ currentlyActiveIndex }
+                    stations={ stationsList }
+                />
+            </CurrentlyPlayingContext.Provider>
             <div className="radioListFooter">
                 <div className="footer-visible">
                     <div className="footer"> Currently playing </div>
