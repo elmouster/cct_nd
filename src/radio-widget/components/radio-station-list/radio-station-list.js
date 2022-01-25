@@ -3,7 +3,7 @@ import { CurrentlyPlayingContext } from  '../../services/station-active-context.
 import './radio-station-list.css'
 
 const RadioStationList = ({ stations, onRadioSelect }) => {
-    const baseUrl = "./logos/";
+    const baseUrl = './logos/';
 
     const stationListItems = stations?.map((station, index) => 
         <li key={ index }>
