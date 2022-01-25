@@ -3,6 +3,9 @@ import RadioStationList from '../../components/radio-station-list/radio-station-
 import { fetchStations } from '../../services/radio-station-service.js'
 import './radio-station-widget.css';
 
+const STATION_LIST_EXPAND_ALT = 'Station List Expand';
+const SWITCH_ALT = 'Radio Widget Switch';
+
 const RadioStationWidget = ({ currentlyPlayingIndex }) => {
     const [currentlyActiveIndex, setCurrentlyPlayingIndex] = useState(currentlyPlayingIndex);
     const [stationsList, setStations] = useState([]);
@@ -26,9 +29,15 @@ const RadioStationWidget = ({ currentlyPlayingIndex }) => {
     return (
         <div className="widget">
             <div className="radioListHeader">
-                <img className="control-button expand-button" src={ require("../../assets/images/back-arrow.png") }/>
+                <img 
+                    className="control-button expand-button" 
+                    src={ require('../../assets/images/back-arrow.png') } 
+                    alt={ STATION_LIST_EXPAND_ALT } />
                 <div className="header"> Stations </div>
-                <img className="control-button on-of-button" src={ require("../../assets/images/switch.png") }/>
+                <img 
+                    className="control-button on-of-button" 
+                    src={ require('../../assets/images/switch.png') } 
+                    alt={ SWITCH_ALT } />
             </div>
             <RadioStationList 
                 onRadioSelect={ onRadioSelect }
