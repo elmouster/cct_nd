@@ -43,7 +43,6 @@ const RadioStationWidget = ({ currentlyPlayingIndex }) => {
             <CurrentlyPlayingContext.Provider value={currentlyActiveIndex}>
                 <RadioStationList 
                     onRadioSelect={ onRadioSelect }
-                    // currentlyPlayingIndex={ currentlyActiveIndex }
                     stations={ stationsList }
                 />
             </CurrentlyPlayingContext.Provider>
